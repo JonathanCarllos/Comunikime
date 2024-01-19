@@ -1,0 +1,33 @@
+﻿@model Comunikime.Models.Categoria
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="text-center">
+    <h3>Atualizar</h3>
+</div>
+<h4>Categoria</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CategoriaId" />
+            <div class="form-group">
+                <label asp-for="CategoriaNome" class="control-label"></label>
+                <input asp-for="CategoriaNome" class="form-control" />
+                <span asp-validation-for="CategoriaNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" /> &nbsp; <a asp-action="Index" class="btn btn-primary"><i class="fa fa-circle-arrow-left"></i> Volta para a lista</a>
+            </div>
+        </form>
+    </div>
+</div>

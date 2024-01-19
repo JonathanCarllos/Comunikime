@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Comunikime.Models.Produto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1>Produtos</h1>
+</div>
+
+
+<p>
+    <a asp-action="Create" class="btn btn-primary"><i class="fa fa-circle-plus"></i> Criar Novo Produto</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>         
+            <th>
+                @Html.DisplayNameFor(model => model.DescricaoCurta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>           
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoCurta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>          
+            <td>
+                @Html.DisplayFor(modelItem => item.Estoque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
+            </td>
+                <td align="right">
+                    <a asp-action="Edit" asp-route-id="@item.CategoriaId" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.CategoriaId" class="btn btn-success"><i class="fa fa-search"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.CategoriaId" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
